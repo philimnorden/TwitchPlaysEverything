@@ -7,11 +7,13 @@ namespace TwitchPlaysEverything
     {
         public void SendInputWithAPI(MyScanCodes code)
         {
-            keybd_event(0, code, 0x0008, 0);
+            keybd_event(0, code, MyFlags.Keydown, 0);
+            System.Threading.Thread.Sleep(100);
+            keybd_event(0, code, MyFlags.Keyup, 0);
         }
 
         [DllImport("user32.dll")]
-        static extern void keybd_event(byte bVk, MyScanCodes bScan, uint dwFlags, int dwExtraInfo);
+        static extern void keybd_event(byte bVk, MyScanCodes bScan, MyFlags dwFlags, int dwExtraInfo);
 
         internal enum MyScanCodes : byte
         {
@@ -27,6 +29,12 @@ namespace TwitchPlaysEverything
             Down = 80,
             Enter = 28,
             
+        }
+
+        internal enum MyFlags : uint
+        {
+            Keydown = 0x0008,
+            Keyup = 0x0002,
         }
     }
 }
