@@ -10,9 +10,9 @@ namespace TwitchPlaysEverything
         static void Main(string[] args)
         {
             string username = "mmustermann";
-            string pass = "oauth:1234567890";
+            string pass = "oauth:123456";
             string room = "mmustermann";
-            string application = "zsnesw";
+            string application = "bsnes";
 
             ChatClient chat = new ChatClient("irc.twitch.tv", 6667, username, pass);
             chat.joinRoom(room);
@@ -41,7 +41,47 @@ namespace TwitchPlaysEverything
                 {
                     case "a":
                         window.SetActiveWindow(application);
-                        input.SendInputWithAPI();
+                        input.SendInputWithAPI(InputManager.MyScanCodes.A);
+                        break;
+                    case "b":
+                        window.SetActiveWindow(application);
+                        input.SendInputWithAPI(InputManager.MyScanCodes.B);
+                        break;
+                    case "x":
+                        window.SetActiveWindow(application);
+                        input.SendInputWithAPI(InputManager.MyScanCodes.X);
+                        break;
+                    case "y":
+                        window.SetActiveWindow(application);
+                        input.SendInputWithAPI(InputManager.MyScanCodes.Y);
+                        break;
+                    case "l":
+                        window.SetActiveWindow(application);
+                        input.SendInputWithAPI(InputManager.MyScanCodes.L);
+                        break;
+                    case "r":
+                        window.SetActiveWindow(application);
+                        input.SendInputWithAPI(InputManager.MyScanCodes.R);
+                        break;
+                    case "left":
+                        window.SetActiveWindow(application);
+                        input.SendInputWithAPI(InputManager.MyScanCodes.Left);
+                        break;
+                    case "right":
+                        window.SetActiveWindow(application);
+                        input.SendInputWithAPI(InputManager.MyScanCodes.Right);
+                        break;
+                    case "up":
+                        window.SetActiveWindow(application);
+                        input.SendInputWithAPI(InputManager.MyScanCodes.Up);
+                        break;
+                    case "down":
+                        window.SetActiveWindow(application);
+                        input.SendInputWithAPI(InputManager.MyScanCodes.Down);
+                        break;
+                    case "enter":
+                        window.SetActiveWindow(application);
+                        input.SendInputWithAPI(InputManager.MyScanCodes.Enter);
                         break;
                     default:
                         break;

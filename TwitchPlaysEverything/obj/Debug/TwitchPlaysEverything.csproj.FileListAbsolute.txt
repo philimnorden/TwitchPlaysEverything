@@ -4,3 +4,9 @@ c:\users\phil\documents\visual studio 2015\Projects\TwitchPlaysEverything\Twitch
 c:\users\phil\documents\visual studio 2015\Projects\TwitchPlaysEverything\TwitchPlaysEverything\obj\Debug\TwitchPlaysEverything.csprojResolveAssemblyReference.cache
 c:\users\phil\documents\visual studio 2015\Projects\TwitchPlaysEverything\TwitchPlaysEverything\obj\Debug\TwitchPlaysEverything.exe
 c:\users\phil\documents\visual studio 2015\Projects\TwitchPlaysEverything\TwitchPlaysEverything\obj\Debug\TwitchPlaysEverything.pdb
+C:\Users\Phil\Documents\GitHub\TwitchPlaysEverything\TwitchPlaysEverything\bin\Debug\TwitchPlaysEverything.exe.config
+C:\Users\Phil\Documents\GitHub\TwitchPlaysEverything\TwitchPlaysEverything\obj\Debug\TwitchPlaysEverything.exe
+C:\Users\Phil\Documents\GitHub\TwitchPlaysEverything\TwitchPlaysEverything\obj\Debug\TwitchPlaysEverything.pdb
+C:\Users\Phil\Documents\GitHub\TwitchPlaysEverything\TwitchPlaysEverything\bin\Debug\TwitchPlaysEverything.exe
+C:\Users\Phil\Documents\GitHub\TwitchPlaysEverything\TwitchPlaysEverything\bin\Debug\TwitchPlaysEverything.pdb
+C:\Users\Phil\Documents\GitHub\TwitchPlaysEverything\TwitchPlaysEverything\obj\Debug\TwitchPlaysEverything.csprojResolveAssemblyReference.cache
