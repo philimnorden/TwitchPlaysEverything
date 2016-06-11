@@ -6,38 +6,48 @@ using System.Threading.Tasks;
 
 namespace TwitchPlaysEverything
 {
-    public static class Comands
+    public class Comands
     {
-
-        public static string Help()
+        public string Help()
         {
+            string[] befehle = new string[10];
+            befehle[0] = "'ReadMe' zeigt die 'Readme.txt' an.";
+            befehle[1] = "'Comand' zeigt alle Comands an.";
+            befehle[2] = "'Github' zeigt den Github-Link des Projekts an.";
+            befehle[3] = "'License' zeigt die Lizenz an.";
+            befehle[4] = "'About' Über den Streamer. 8=====D";
 
-            return "Hilfe";
+            for (int i = 0; i < 10; i++)
+                //TODO Schleife fixxen
+            {
+                return befehle[i];
+            }
+            return "Viel Spaß :)";
+            
         }
 
-        public static string ReadMe()
+        public string ReadMe()
         {
 
             return "ReadMe";
         }
 
-        public static string Befehle()
+        public string Comand()
         {
-            return "!help,!Readme,!Comands";
+            return "!help,!Readme,!Comands,!Github,!License,!About,!Comandhelp [comand]";
         }
 
-        public static string Github()
+        public string Github()
         {
-            string Link = "http://www.github.com/philimnorden/TwitchPlaysEverything";
-            return Link;
+           return "http://www.github.com/philimnorden/TwitchPlaysEverything";  
         }
 
-        public static string License()
+        public string License()
         {
             return "Hier entsteht noch ein Text...";
         }
 
-        public static string About()
+        public string About()
         {
             return "Hier ensteht noch ein Text...";
         }

@@ -15,3 +15,4 @@ C:\Users\Tim\Source\Repos\TwitchPlaysEverything\TwitchPlaysEverything\obj\Debug\
 C:\Users\Tim\Source\Repos\TwitchPlaysEverything\TwitchPlaysEverything\obj\Debug\TwitchPlaysEverything.pdb
 C:\Users\Tim\Source\Repos\TwitchPlaysEverything\TwitchPlaysEverything\bin\Debug\TwitchPlaysEverything.exe
 C:\Users\Tim\Source\Repos\TwitchPlaysEverything\TwitchPlaysEverything\bin\Debug\TwitchPlaysEverything.pdb
+C:\Users\Tim\Source\Repos\TwitchPlaysEverything\TwitchPlaysEverything\obj\Debug\TwitchPlaysEverything.csprojResolveAssemblyReference.cache

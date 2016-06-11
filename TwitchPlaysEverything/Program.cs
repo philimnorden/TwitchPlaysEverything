@@ -9,10 +9,10 @@ namespace TwitchPlaysEverything
 
         static void Main(string[] args)
         {
-            string username = "mmustermann";
-            string pass = "oauth:12345r";
-            string room = "mmustermann";
-            string application = "bsnes";
+            string username = "Pumpitx";
+            string pass = "oauth:072rdattgjxd46sh6piv50lie4y1mr";
+            string room = "pumpitx";
+            string application = "notepad";
 
             ChatClient chat = new ChatClient("irc.chat.twitch.tv", 6667, username, pass);
             chat.joinRoom(room);
@@ -20,6 +20,8 @@ namespace TwitchPlaysEverything
 
             WindowManager window = new WindowManager();
             InputManager input = new InputManager();
+            Comands Befehle = new Comands();
+
 
             while (true)
             {
@@ -44,22 +46,22 @@ namespace TwitchPlaysEverything
                 switch (onlyMessage.ToLower())
                 {
                     case "!help":
-                        chat.sendMessage(Comands.Help());
+                        chat.sendMessage(Befehle.Help());
                         break;
                     case "!readme":
-                        chat.sendMessage(Comands.ReadMe());
+                        chat.sendMessage(Befehle.ReadMe());
                         break;
                     case "!comands":
-                        chat.sendMessage(Comands.Befehle());
+                        chat.sendMessage(Befehle.Comand());
                         break;
                     case "!github":
-                        chat.sendMessage(Comands.Github());
+                        chat.sendMessage(Befehle.Github());
                         break;
                     case "!license":
-                        chat.sendMessage(Comands.License());
+                        chat.sendMessage(Befehle.License());
                         break;
                     case "!about":
-                        chat.sendMessage(Comands.License());
+                        chat.sendMessage(Befehle.License());
                         break;
                     case "a":
                         window.SetActiveWindow(application);
