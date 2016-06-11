@@ -27,10 +27,14 @@ namespace TwitchPlaysEverything
                 string regexPattern = @":[a-zA-Z0-9_]+![a-zA-Z0-9_]+@[a-zA-Z0-9_]+.tmi.twitch.tv PRIVMSG #" + room + " :";
                 Regex regex = new Regex(regexPattern);
 
+
                 string onlyMessage = string.Empty;
+                string name = string.Empty;
                 try
                 {
                     onlyMessage = regex.Replace(messageWithName, "");
+                    name = messageWithName.Substring(1, messageWithName.IndexOf("!")-1);
+
                 }
                 catch
                 {
@@ -39,6 +43,10 @@ namespace TwitchPlaysEverything
 
                 switch (onlyMessage.ToLower())
                 {
+                    case "!help":
+                        chat.sendMessage("DU MUSST VORHER SPENDEN!");
+                        break;
+
                     case "a":
                         window.SetActiveWindow(application);
                         input.SendInputWithAPI(InputManager.MyScanCodes.A);
@@ -87,7 +95,8 @@ namespace TwitchPlaysEverything
                         break;
                 }
 
-                Console.WriteLine(onlyMessage);
+                Console.WriteLine(name + ": " + onlyMessage);
+                //Console.WriteLine(messageWithName);
 
             }
         }
