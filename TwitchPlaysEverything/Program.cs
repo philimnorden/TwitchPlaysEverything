@@ -10,7 +10,7 @@ namespace TwitchPlaysEverything
         static void Main(string[] args)
         {
             string username = "mmustermann";
-            string pass = "oauth:123456";
+            string pass = "oauth:12345r";
             string room = "mmustermann";
             string application = "bsnes";
 
@@ -33,7 +33,7 @@ namespace TwitchPlaysEverything
                 try
                 {
                     onlyMessage = regex.Replace(messageWithName, "");
-                    name = messageWithName.Substring(1, messageWithName.IndexOf("!")-1);
+                    name = messageWithName.Substring(1, messageWithName.IndexOf(".")-1);
 
                 }
                 catch
@@ -44,9 +44,23 @@ namespace TwitchPlaysEverything
                 switch (onlyMessage.ToLower())
                 {
                     case "!help":
-                        chat.sendMessage("DU MUSST VORHER SPENDEN!");
+                        chat.sendMessage(Comands.Help());
                         break;
-
+                    case "!readme":
+                        chat.sendMessage(Comands.ReadMe());
+                        break;
+                    case "!comands":
+                        chat.sendMessage(Comands.Befehle());
+                        break;
+                    case "!github":
+                        chat.sendMessage(Comands.Github());
+                        break;
+                    case "!license":
+                        chat.sendMessage(Comands.License());
+                        break;
+                    case "!about":
+                        chat.sendMessage(Comands.License());
+                        break;
                     case "a":
                         window.SetActiveWindow(application);
                         input.SendInputWithAPI(InputManager.MyScanCodes.A);
