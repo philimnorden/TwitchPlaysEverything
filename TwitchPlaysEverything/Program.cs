@@ -14,7 +14,7 @@ namespace TwitchPlaysEverything
             string room = "mmustermann";
             string application = "bsnes";
 
-            ChatClient chat = new ChatClient("irc.twitch.tv", 6667, username, pass);
+            ChatClient chat = new ChatClient("irc.chat.twitch.tv", 6667, username, pass);
             chat.joinRoom(room);
             chat.sendMessage("Application started successfully ...");
 
