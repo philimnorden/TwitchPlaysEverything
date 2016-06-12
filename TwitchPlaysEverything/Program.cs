@@ -8,10 +8,10 @@ namespace TwitchPlaysEverything
 
         static void Main(string[] args)
         {
-            string username = "mmustermann";
-            string pass = "oauth:12345";
-            string room = "mmustermann";
-            string application = "bsnes";
+            string username = "Pumpitx";
+            string pass = "oauth:0b86wmbg1x5wy2qtjst582g6s7yf8p";
+            string room = "pumpitx";
+            string application = "notepad";
 
             ChatClient chat = new ChatClient("irc.chat.twitch.tv", 6667, username, pass);
             chat.joinRoom(room);
@@ -54,7 +54,7 @@ namespace TwitchPlaysEverything
                     Console.WriteLine("Message could not be evaluated: " + messageWithName);
                 }
 
-                Console.WriteLine("Zum Senden von Nachrichten an Chat bitte '/send [Nachricht]' eintippen");
+               // Console.WriteLine("Zum Senden von Nachrichten an Chat bitte '/send [Nachricht]' eintippen");
                 switch (onlyMessage.ToLower())
                 {
                     case "!help":
@@ -132,14 +132,14 @@ namespace TwitchPlaysEverything
                     error = string.Empty;
                 }
 
-                //ermöglicht Eingaben durch Konsole und senden an TwitchChat via Bot
+             /*   //ermöglicht Eingaben durch Konsole und senden an TwitchChat via Bot
                 ConsoleInput = Console.ReadLine();
                 if (ConsoleInput.Contains("/send"))
                 {
                     ConsoleInput = ConsoleInput.Substring(ConsoleInput.IndexOf(" "));
                     chat.sendMessage(ConsoleInput);
                 }
-
+                */
                 //sendet Nachrichten mit Namen aus Chat an Konsole
                 Console.WriteLine(name + ": " + onlyMessage);
 

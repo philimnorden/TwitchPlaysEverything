@@ -17,15 +17,20 @@ namespace TwitchPlaysEverything
         public string CheckLetter(string argument, MyScanCodes code)
         {
             int zeit = 0;
+            if(String.IsNullOrEmpty(argument))
+            {
+                SendInputWithAPI(code, zeit);
+                return null;
+            }
             try
             {
                 zeit = Int32.Parse(argument);
             }
             catch
             {
-                return " Fehler in CheckLetter() mit " + code +"\r\nKonnte Argument nicht Parsen.";
+                return " Fehler in CheckLetter() mit " + code + "\r\nKonnte Argument nicht Parsen.";
             }
-            SendInputWithAPI(code,zeit);
+            SendInputWithAPI(code, zeit);
             return null;
         }
 
