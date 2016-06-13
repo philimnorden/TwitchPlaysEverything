@@ -5,11 +5,28 @@ namespace TwitchPlaysEverything
 {
     class InputManager
     {
-        public void SendInputWithAPI(MyScanCodes code)
+        public void SendInputWithAPI(MyScanCodes code,int zeit)
         {
+            if (zeit == 0)
+                zeit = 100;
             keybd_event(0, code, MyFlags.Keydown, 0);
-            System.Threading.Thread.Sleep(100);
+            System.Threading.Thread.Sleep(zeit);
             keybd_event(0, code, MyFlags.Keyup, 0);
+        }
+
+        public string CheckLetter(string argument, MyScanCodes code)
+        {
+            int zeit = 0;
+            try
+            {
+                zeit = Int32.Parse(argument);
+            }
+            catch
+            {
+                return " Fehler...";
+            }
+            SendInputWithAPI(code,zeit);
+            return null;
         }
 
         [DllImport("user32.dll")]

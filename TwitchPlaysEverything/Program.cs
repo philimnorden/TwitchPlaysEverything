@@ -6,7 +6,6 @@ namespace TwitchPlaysEverything
     class Program
     {
 
-
         static void Main(string[] args)
         {
             string username = "mmustermann";
@@ -29,12 +28,22 @@ namespace TwitchPlaysEverything
                 string regexPattern = @":[a-zA-Z0-9_]+![a-zA-Z0-9_]+@[a-zA-Z0-9_]+.tmi.twitch.tv PRIVMSG #" + room + " :";
                 Regex regex = new Regex(regexPattern);
 
-
+                string SecArgument = string.Empty;
                 string onlyMessage = string.Empty;
                 string name = string.Empty;
                 try
                 {
+
                     onlyMessage = regex.Replace(messageWithName, "");
+
+                    if (onlyMessage.Contains(" "))
+                    {
+                        SecArgument = onlyMessage.Substring(onlyMessage.IndexOf(" "));
+                    }
+                    else
+                    {
+                        SecArgument = String.Empty;
+                    }
                     name = messageWithName.Substring(1, messageWithName.IndexOf(".")-1);
 
                 }
@@ -43,10 +52,15 @@ namespace TwitchPlaysEverything
                     Console.WriteLine("Message could not be evaluated: " + messageWithName);
                 }
 
+
                 switch (onlyMessage.ToLower())
                 {
                     case "!help":
-                        chat.sendMessage(Befehle.Help());
+
+                        for (int i = 0; i < Befehle.befehle.Length ; i++)
+                        {
+                            chat.sendMessage(Befehle.Help(i)); //Testen der Schleife, i als Parameter für array
+                        }
                         break;
                     case "!readme":
                         chat.sendMessage(Befehle.ReadMe());
@@ -65,47 +79,47 @@ namespace TwitchPlaysEverything
                         break;
                     case "a":
                         window.SetActiveWindow(application);
-                        input.SendInputWithAPI(InputManager.MyScanCodes.A);
+                        input.CheckLetter(SecArgument, InputManager.MyScanCodes.A);
                         break;
                     case "b":
                         window.SetActiveWindow(application);
-                        input.SendInputWithAPI(InputManager.MyScanCodes.B);
+                        input.CheckLetter(SecArgument, InputManager.MyScanCodes.B);
                         break;
                     case "x":
                         window.SetActiveWindow(application);
-                        input.SendInputWithAPI(InputManager.MyScanCodes.X);
+                        input.CheckLetter(SecArgument, InputManager.MyScanCodes.X);
                         break;
                     case "y":
                         window.SetActiveWindow(application);
-                        input.SendInputWithAPI(InputManager.MyScanCodes.Y);
+                        input.CheckLetter(SecArgument, InputManager.MyScanCodes.Y);
                         break;
                     case "l":
                         window.SetActiveWindow(application);
-                        input.SendInputWithAPI(InputManager.MyScanCodes.L);
+                        input.CheckLetter(SecArgument, InputManager.MyScanCodes.L);
                         break;
                     case "r":
                         window.SetActiveWindow(application);
-                        input.SendInputWithAPI(InputManager.MyScanCodes.R);
+                        input.CheckLetter(SecArgument, InputManager.MyScanCodes.R);
                         break;
                     case "left":
                         window.SetActiveWindow(application);
-                        input.SendInputWithAPI(InputManager.MyScanCodes.Left);
+                        input.CheckLetter(SecArgument, InputManager.MyScanCodes.Left);
                         break;
                     case "right":
                         window.SetActiveWindow(application);
-                        input.SendInputWithAPI(InputManager.MyScanCodes.Right);
+                        input.CheckLetter(SecArgument, InputManager.MyScanCodes.Right);
                         break;
                     case "up":
                         window.SetActiveWindow(application);
-                        input.SendInputWithAPI(InputManager.MyScanCodes.Up);
+                        input.CheckLetter(SecArgument, InputManager.MyScanCodes.Up);
                         break;
                     case "down":
                         window.SetActiveWindow(application);
-                        input.SendInputWithAPI(InputManager.MyScanCodes.Down);
+                        input.CheckLetter(SecArgument, InputManager.MyScanCodes.Down);
                         break;
                     case "enter":
                         window.SetActiveWindow(application);
-                        input.SendInputWithAPI(InputManager.MyScanCodes.Enter);
+                        input.CheckLetter(SecArgument, InputManager.MyScanCodes.Enter);
                         break;
                     default:
                         break;

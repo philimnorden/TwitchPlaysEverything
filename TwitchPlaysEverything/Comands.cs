@@ -8,21 +8,18 @@ namespace TwitchPlaysEverything
 {
     public class Comands
     {
-        public string Help()
+        public string[] befehle = new string[10];
+
+        public string Help(int Zahl)
         {
-            string[] befehle = new string[10];
             befehle[0] = "'ReadMe' zeigt die 'Readme.txt' an.";
             befehle[1] = "'Comand' zeigt alle Comands an.";
             befehle[2] = "'Github' zeigt den Github-Link des Projekts an.";
             befehle[3] = "'License' zeigt die Lizenz an.";
             befehle[4] = "'About' Über den Streamer. 8=====D";
 
-            for (int i = 0; i < 10; i++)
-                //TODO Schleife fixxen
-            {
-                return befehle[i];
-            }
-            return "Viel Spaß :)";
+
+            return befehle[Zahl];
             
         }
 
