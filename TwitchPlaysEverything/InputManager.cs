@@ -23,7 +23,7 @@ namespace TwitchPlaysEverything
             }
             catch
             {
-                return " Fehler...";
+                return " Fehler in CheckLetter() mit " + code +"\r\nKonnte Argument nicht Parsen.";
             }
             SendInputWithAPI(code,zeit);
             return null;

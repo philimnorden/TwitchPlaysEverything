@@ -28,6 +28,8 @@ namespace TwitchPlaysEverything
                 string regexPattern = @":[a-zA-Z0-9_]+![a-zA-Z0-9_]+@[a-zA-Z0-9_]+.tmi.twitch.tv PRIVMSG #" + room + " :";
                 Regex regex = new Regex(regexPattern);
 
+                string ConsoleInput = string.Empty;
+                string error = string.Empty;
                 string SecArgument = string.Empty;
                 string onlyMessage = string.Empty;
                 string name = string.Empty;
@@ -52,11 +54,10 @@ namespace TwitchPlaysEverything
                     Console.WriteLine("Message could not be evaluated: " + messageWithName);
                 }
 
-
+                Console.WriteLine("Zum Senden von Nachrichten an Chat bitte '/send [Nachricht]' eintippen");
                 switch (onlyMessage.ToLower())
                 {
                     case "!help":
-
                         for (int i = 0; i < Befehle.befehle.Length ; i++)
                         {
                             chat.sendMessage(Befehle.Help(i)); //Testen der Schleife, i als Parameter für array
@@ -79,54 +80,68 @@ namespace TwitchPlaysEverything
                         break;
                     case "a":
                         window.SetActiveWindow(application);
-                        input.CheckLetter(SecArgument, InputManager.MyScanCodes.A);
+                       error = input.CheckLetter(SecArgument, InputManager.MyScanCodes.A);
                         break;
                     case "b":
                         window.SetActiveWindow(application);
-                        input.CheckLetter(SecArgument, InputManager.MyScanCodes.B);
+                       error = input.CheckLetter(SecArgument, InputManager.MyScanCodes.B);
                         break;
                     case "x":
                         window.SetActiveWindow(application);
-                        input.CheckLetter(SecArgument, InputManager.MyScanCodes.X);
+                       error = input.CheckLetter(SecArgument, InputManager.MyScanCodes.X);
                         break;
                     case "y":
                         window.SetActiveWindow(application);
-                        input.CheckLetter(SecArgument, InputManager.MyScanCodes.Y);
+                       error = input.CheckLetter(SecArgument, InputManager.MyScanCodes.Y);
                         break;
                     case "l":
                         window.SetActiveWindow(application);
-                        input.CheckLetter(SecArgument, InputManager.MyScanCodes.L);
+                       error = input.CheckLetter(SecArgument, InputManager.MyScanCodes.L);
                         break;
                     case "r":
                         window.SetActiveWindow(application);
-                        input.CheckLetter(SecArgument, InputManager.MyScanCodes.R);
+                       error = input.CheckLetter(SecArgument, InputManager.MyScanCodes.R);
                         break;
                     case "left":
                         window.SetActiveWindow(application);
-                        input.CheckLetter(SecArgument, InputManager.MyScanCodes.Left);
+                       error = input.CheckLetter(SecArgument, InputManager.MyScanCodes.Left);
                         break;
                     case "right":
                         window.SetActiveWindow(application);
-                        input.CheckLetter(SecArgument, InputManager.MyScanCodes.Right);
+                       error = input.CheckLetter(SecArgument, InputManager.MyScanCodes.Right);
                         break;
                     case "up":
                         window.SetActiveWindow(application);
-                        input.CheckLetter(SecArgument, InputManager.MyScanCodes.Up);
+                      error = input.CheckLetter(SecArgument, InputManager.MyScanCodes.Up);
                         break;
                     case "down":
                         window.SetActiveWindow(application);
-                        input.CheckLetter(SecArgument, InputManager.MyScanCodes.Down);
+                       error = input.CheckLetter(SecArgument, InputManager.MyScanCodes.Down);
                         break;
                     case "enter":
                         window.SetActiveWindow(application);
-                        input.CheckLetter(SecArgument, InputManager.MyScanCodes.Enter);
+                       error = input.CheckLetter(SecArgument, InputManager.MyScanCodes.Enter);
                         break;
                     default:
                         break;
                 }
 
+                if (!string.IsNullOrEmpty(error))
+                {
+                    Console.WriteLine(error);
+                    error = string.Empty;
+                }
+
+                //ermöglicht Eingaben durch Konsole und senden an TwitchChat via Bot
+                ConsoleInput = Console.ReadLine();
+                if (ConsoleInput.Contains("/send"))
+                {
+                    ConsoleInput = ConsoleInput.Substring(ConsoleInput.IndexOf(" "));
+                    chat.sendMessage(ConsoleInput);
+                }
+
+                //sendet Nachrichten mit Namen aus Chat an Konsole
                 Console.WriteLine(name + ": " + onlyMessage);
-                //Console.WriteLine(messageWithName);
 
             }
         }
