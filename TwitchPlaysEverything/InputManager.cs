@@ -7,7 +7,7 @@ namespace TwitchPlaysEverything
     {
         public void SendInputWithAPI(MyScanCodes code,int zeit)
         {
-            if (zeit == 0)
+            if (zeit == 0 || zeit > 10000) //größer 10 Sekunden
                 zeit = 100;
             keybd_event(0, code, MyFlags.Keydown, 0);
             System.Threading.Thread.Sleep(zeit);
