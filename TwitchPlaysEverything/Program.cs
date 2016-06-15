@@ -8,10 +8,10 @@ namespace TwitchPlaysEverything
 
         static void Main(string[] args)
         {
-            string username = "Pumpitx";
-            string pass = "oauth:0b86wmbg1x5wy2qtjst582g6s7yf8p";
-            string room = "pumpitx";
-            string application = "notepad";
+            string username = "mmustermann";
+            string pass = "oauth: 12345";
+            string room = "mmustermann";
+            string application = "bsnes";
 
             ChatClient chat = new ChatClient("irc.chat.twitch.tv", 6667, username, pass);
             chat.joinRoom(room);
