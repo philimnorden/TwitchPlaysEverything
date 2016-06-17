@@ -9,7 +9,7 @@ namespace TwitchPlaysEverything
         static void Main(string[] args)
         {
             string username = "mmustermann";
-            string pass = "oauth: 12345";
+            string pass = "oauth:12345;
             string room = "mmustermann";
             string application = "bsnes";
 
@@ -140,6 +140,7 @@ namespace TwitchPlaysEverything
                     chat.sendMessage(ConsoleInput);
                 }
                 */
+
                 //sendet Nachrichten mit Namen aus Chat an Konsole
                 Console.WriteLine(name + ": " + onlyMessage);
 
