@@ -7,8 +7,10 @@ namespace TwitchPlaysEverything
     {
         public void SendInputWithAPI(MyScanCodes code,int zeit)
         {
-            if (zeit == 0 || zeit > 10000) //größer 10 Sekunden
+            if (zeit > 10000)//größer 10 Sekunden vorerst nicht zulässig
+            { 
                 zeit = 100;
+            }
             keybd_event(0, code, MyFlags.Keydown, 0);
             System.Threading.Thread.Sleep(zeit);
             keybd_event(0, code, MyFlags.Keyup, 0);
@@ -16,7 +18,7 @@ namespace TwitchPlaysEverything
 
         public string CheckLetter(string argument, MyScanCodes code)
         {
-            int zeit = 0;
+            int zeit = 100;
             if(String.IsNullOrEmpty(argument))
             {
                 SendInputWithAPI(code, zeit);
