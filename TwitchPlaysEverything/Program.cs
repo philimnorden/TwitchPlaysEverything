@@ -9,7 +9,7 @@ namespace TwitchPlaysEverything
         static void Main(string[] args)
         {
             string username = "mmustermann";
-            string pass = "oauth:12345;
+            string pass = "oauth:12345";
             string room = "mmustermann";
             string application = "bsnes";
 
@@ -33,11 +33,22 @@ namespace TwitchPlaysEverything
                 string SecArgument = string.Empty;
                 string onlyMessage = string.Empty;
                 string name = string.Empty;
+
+                //Einlog-Fehler-Abfrage
+                if (messageWithName.Contains("Login unsuccessful"))
+                {
+                    Console.WriteLine(messageWithName);
+                    Console.WriteLine("Taste drücken zum Beenden und Daten überprüfen.");
+                    Console.ReadKey();
+                    break;
+                }
+
                 try
                 {
 
                     onlyMessage = regex.Replace(messageWithName, "");
 
+                    //Argumentabfrage
                     if (onlyMessage.Contains(" "))
                     {
                         SecArgument = onlyMessage.Substring(onlyMessage.IndexOf(" "));
@@ -54,7 +65,6 @@ namespace TwitchPlaysEverything
                     Console.WriteLine("Message could not be evaluated: " + messageWithName);
                 }
 
-               // Console.WriteLine("Zum Senden von Nachrichten an Chat bitte '/send [Nachricht]' eintippen");
                 switch (onlyMessage.ToLower())
                 {
                     case "!help":
@@ -131,15 +141,6 @@ namespace TwitchPlaysEverything
                     Console.WriteLine(error);
                     error = string.Empty;
                 }
-
-             /*   //ermöglicht Eingaben durch Konsole und senden an TwitchChat via Bot
-                ConsoleInput = Console.ReadLine();
-                if (ConsoleInput.Contains("/send"))
-                {
-                    ConsoleInput = ConsoleInput.Substring(ConsoleInput.IndexOf(" "));
-                    chat.sendMessage(ConsoleInput);
-                }
-                */
 
                 //sendet Nachrichten mit Namen aus Chat an Konsole
                 Console.WriteLine(name + ": " + onlyMessage);
