@@ -60,5 +60,37 @@ namespace TwitchPlaysEverything
             Keydown = 0x0008,
             Keyup = 0x0002,
         }
+
+        public void Push(string argument)
+        {
+            switch (argument.ToLower())
+            {
+                case "up":
+                    SendPushWithAPI(argument, MyScanCodes.Up);
+                    break;
+                case "down":
+                    SendPushWithAPI(argument, MyScanCodes.Down);
+                    break;
+                case "right":
+                    SendPushWithAPI(argument, MyScanCodes.Right);
+                    break;
+                case "left":
+                    SendPushWithAPI(argument, MyScanCodes.Left);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public void SendPushWithAPI(string argument, MyScanCodes code)
+        {
+            keybd_event(0, MyScanCodes.A, MyFlags.Keydown, 0);
+            keybd_event(0, code, MyFlags.Keydown, 0);
+            System.Threading.Thread.Sleep(1000);
+            keybd_event(0, code, MyFlags.Keyup, 0);
+            keybd_event(0, code, MyFlags.Keyup, 0);
+
+
+        }
     }
 }

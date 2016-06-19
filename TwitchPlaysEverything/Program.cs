@@ -132,6 +132,10 @@ namespace TwitchPlaysEverything
                         window.SetActiveWindow(application);
                        error = input.CheckLetter(SecArgument, InputManager.MyScanCodes.Enter);
                         break;
+                    case "push":
+                        window.SetActiveWindow(application);
+                        input.Push(SecArgument);
+                        break;
                     default:
                         break;
                 }
