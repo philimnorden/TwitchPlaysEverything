@@ -136,6 +136,10 @@ namespace TwitchPlaysEverything
                         window.SetActiveWindow(application);
                         input.Push(SecArgument);
                         break;
+                    case "pull";
+                        window.SetActiveWindow(application);
+                        input.Pull(SecArgument);
+                        break;
                     default:
                         break;
                 }
