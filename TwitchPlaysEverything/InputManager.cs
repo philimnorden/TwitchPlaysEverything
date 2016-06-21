@@ -106,9 +106,11 @@ namespace TwitchPlaysEverything
         public void SendPushWithAPI(string argument, MyScanCodes code)
         {
             keybd_event(0, MyScanCodes.A, MyFlags.Keydown, 0);
+            System.Threading.Thread.Sleep(50);
             keybd_event(0, code, MyFlags.Keydown, 0);
             System.Threading.Thread.Sleep(1000);
             keybd_event(0, code, MyFlags.Keyup, 0);
+            System.Threading.Thread.Sleep(50);
             keybd_event(0, code, MyFlags.Keyup, 0);
 
 
